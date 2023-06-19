@@ -1,2 +1,2 @@
 # inventory
-OOP and FP inventory realization
+My OOP and FP inventory realization
