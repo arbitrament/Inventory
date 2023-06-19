@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1CcGO2GqEnYnQlN50nLR61jjOnhbQtQgNaNLYRJwgI7BSChQteEU7ZLgLYEkwirTPeS7S+928tBY7JmjMD+gPA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\su\\Desktop\\desktop\\Inventory\\Inventory.FP\\Inventory.FP\\Inventory.FP.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\su\\.nuget\\packages\\fsharp.core\\7.0.200\\fsharp.core.7.0.200.nupkg.sha512"
+  ],
+  "logs": []
+}
