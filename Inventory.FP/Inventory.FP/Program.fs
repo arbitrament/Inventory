@@ -1,4 +1,12 @@
-﻿type Item = 
+let getIndex item source =
+        let condition suspect = suspect = item 
+        List.findIndex condition source
+
+let replace old young sourceList =
+    let oldIndex = getIndex old sourceList
+    List.updateAt oldIndex young sourceList
+
+type Item = 
     | Cobblestone
     | Dirt
 
@@ -12,13 +20,9 @@ let merge a b =
 let put inventory cell = 
     let suspectExistedCell = List.tryFind (isCellsItemsEquals cell) inventory
     
-    let getCellIndex existed =
-        let condition suspect = suspect = existed
-        List.findIndex condition inventory
-
     match suspectExistedCell with
     | None -> cell :: inventory
-    | Some mergableCell -> List.updateAt (getCellIndex mergableCell) (merge mergableCell cell) inventory
+    | Some mergableCell -> replace mergableCell (merge mergableCell cell) inventory
 
 // Tests
 let inventory = [{Item = Cobblestone; Quantity = 5}]
