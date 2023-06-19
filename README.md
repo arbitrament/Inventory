@@ -1,2 +1,2 @@
 # inventory
-Cute OOP inventory realization
+OOP and FP inventory realization
