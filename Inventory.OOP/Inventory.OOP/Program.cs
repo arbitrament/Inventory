@@ -1,4 +1,4 @@
-﻿namespace Inventory.OOP;
+namespace Inventory.OOP;
 
 public enum ItemType
 {
@@ -13,12 +13,12 @@ public interface IItem
 
 public class Item : IItem
 {
-    public ItemType Type { get; }
-
     public Item(ItemType type)
     {
         Type = type;
     }
+
+    public ItemType Type { get; }
 }
 
 public interface IReadOnlyCell<TItem>
@@ -31,12 +31,6 @@ public class Cell<TItem> : IReadOnlyCell<TItem> where TItem : IItem
 {
     private readonly TItem _item;
 
-    public string Name => _item.Type.ToString();
-
-    public int Quantity { get; private set; }
-
-    public ItemType ItemType => _item.Type;
-
     public Cell(TItem item, int amount)
     {
         if (amount < 0)
@@ -45,6 +39,12 @@ public class Cell<TItem> : IReadOnlyCell<TItem> where TItem : IItem
         _item = item ?? throw new ArgumentNullException(nameof(item));
         Quantity = amount;
     }
+
+    public int Quantity { get; private set; }
+
+    public string Name => _item.Type.ToString();
+    
+    public ItemType ItemType => _item.Type;
 
     public bool CanMerge(Cell<TItem> cell)
     {
@@ -70,12 +70,12 @@ public class Inventory<TItem> where TItem : IItem
 {
     private readonly List<Cell<TItem>> _cells;
 
-    public IReadOnlyList<IReadOnlyCell<TItem>> Cells => _cells;
-
     public Inventory()
     {
         _cells = new List<Cell<TItem>>();
     }
+
+    public IReadOnlyList<IReadOnlyCell<TItem>> Cells => _cells;
 
     public void Put(Cell<TItem> cell)
     {
